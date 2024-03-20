@@ -24,7 +24,7 @@ plot(single_l)
 plot(complete_l)
 plot(avg_l)
 
-# question no 3
+# question no 4
 data<- read.csv(file.choose())
 head(data)
 data = data[-1]
@@ -36,3 +36,17 @@ plot(singlle)
 plot(complete)
 singlle$height
 singlle$order
+
+#question no 5
+#for k=2
+cluster2<- kmeans(d4,2)
+cluster2
+cluster2$cluster
+#for k=3
+cluster3<- kmeans(d4,3)
+cluster3
+cluster3$cluster
+#for k=4
+cluster4<- kmeans(d4,4)
+cluster4
+cluster4$cluster

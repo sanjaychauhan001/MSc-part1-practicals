@@ -59,3 +59,15 @@ A$values[4]/sum(A$values)
 
 
 # question no 4
+data<- read.csv(file.choose())
+head(data)
+data[-1]
+df<- data[-1]
+s<- data.matrix(df)
+#i
+R<- cor(s)
+R
+A<- eigen(R)
+A
+#ii
+princomp(R)$scores
