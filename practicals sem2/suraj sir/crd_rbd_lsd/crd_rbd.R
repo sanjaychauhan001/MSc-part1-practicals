@@ -47,3 +47,38 @@ TukeyHSD(aov(lm(data$yeild~data$treatment+data$varity)))
 plot(model)
 shapiro.test(model$residuals)
 bptest(model)
+
+# question no 5
+#Hypothesis
+#HoA;THERE IS NO SIGNIFICANT DIFF BET THE EFFECT OF DIFF BATCHES H1A:NOT H0A
+#H0B:THERE IS NO SIGNIFICANT DIFF BET THE EFFECT OF DIFF OPERATORS H1B:NOT H0B
+#H0C:THERE IS NO SIGNIFICANT DIFF BET THE EFFECT OF DIFF TREATMNETS  H1C:NOT H0C
+data<- read.csv(file.choose())
+head(data)
+data$batches<- as.factor(data$batches)  
+data$operators<- as.factor(data$operators)
+data$formulation<- as.factor(data$formulation)
+model<- lm(data$yeild~data$batches+data$operators+data$formulation)
+model
+summary(model)
+anova(model)
+plot(model)
+TukeyHSD(aov(lm(data$yeild~data$batches+data$operators+data$formulation)))
+shapiro.test(model$residuals)
+bptest(model)
+leveneTest(model)
+
+# question no 6
+data<- read.csv(file.choose())
+head(data)
+data$skin<- as.factor(data$skin)
+data$rabbit<- as.factor(data$rabbit)
+data$order<- as.factor(data$order)
+model<- lm(data$yeild~data$skin+data$rabbit+data$order)
+model
+summary(model)
+anova(model)
+plot(model)
+shapiro.test(model$residuals)
+bptest(model)
+leveneTest(model)
